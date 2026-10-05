@@ -22,5 +22,9 @@ class Environment:
         # Hint, use self.amplitude, self.period_s, self.door_start_s, self.door_duration_s, self.door_drop_C, self.base to make use of the values defined in the dataclass
         
         # --- Student code ends here ---
-        
-        return 0.0 # remove when code is added
+        sample = self.base + self.amplitude * math.sin(2 * math.pi * t / self.period_s)
+        door_open = self.door_start_s <= t < self.door_start_s + self.door_duration_s
+        if door_open:
+            sample -= self.door_drop_C
+
+        return sample

@@ -5,13 +5,13 @@ class RNG:
         self.rng = default_rng(seed)
 
     def gauss(self, mu: float, sigma: float) -> float:
-        ''' Return a random float following a Gaussian distribution with mean mu and standard deviation sigma. '''
-        return 0 #float(self.rng ###)
+        sample = self.rng.normal(mu, sigma)
+        return float(sample)
 
     def uniform(self, a: float, b: float) -> float:
-        ''' Return a random float in the range [a, b) following a uniform distribution. '''
-        return 0 #float(self.rng ###)
+        sample = self.rng.uniform(a, b)
+        return float(sample)
 
     def bernoulli(self, p: float) -> bool:
-        ''' Return True with probability p, False with probability 1-p. '''
-        return 0 #bool(self.rng ###)
+        sample = self.rng.binomial(1, p)
+        return bool(sample)
